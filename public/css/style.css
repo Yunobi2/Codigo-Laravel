@@ -1,0 +1,9 @@
+.table{
+    width: 100vw;
+}
+
+.activo a{
+    color:green;
+    text-decoration:underline;
+}
+
