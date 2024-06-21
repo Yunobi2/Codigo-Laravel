@@ -3,6 +3,7 @@
 @section('title','Servicios')
 
 @section('content')
+<h2>Servicios</h2>
 <tr>
     <td colspan="4">
         <a href="{{ route('servicios.create') }}">Nuevo Servicio</a>
@@ -11,7 +12,6 @@
     <th colspan="4">Listado de Servicios</th>
 </tr>
 </tr>
-    <h2>Servicios</h2>
     <tr>
         @if($servicios)
             @foreach($servicios as $servicio)
