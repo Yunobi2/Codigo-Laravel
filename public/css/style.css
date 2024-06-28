@@ -6,4 +6,55 @@
     color:green;
     text-decoration:underline;
 }
+/* -----------------------------STYLE CONTACTO--------------------------------- */
+.contact-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
 
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contact-table th {
+    background-color: #333;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+.contact-table td {
+    padding: 5px 10px;
+}
+
+.contact-table input,
+.contact-table textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.contact-table textarea {
+    height: 100px;
+}
+
+.button-row {
+    text-align: left;
+}
+
+.contact-table button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #007BFF;
+    border: 1px solid #007BFF;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.contact-table button:hover {
+    background-color: #0167d4;
+}
