@@ -23,8 +23,10 @@ class ContactoController extends Controller
 
         Mail::to('yunobiluis@gmail.com')->send(new MensajeRecibido ($mensaje));
         
-        return new MensajeRecibido($mensaje);
+        // return new MensajeRecibido($mensaje);
 
-        return 'Mensaje Enviado';
+        // return 'Mensaje Enviado';
+        return back()->with('estado','Gracias por ponerte en contacto, te responderemos a la brevedad posible');
+        
     }
 }

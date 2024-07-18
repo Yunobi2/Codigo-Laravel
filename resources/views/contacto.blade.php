@@ -11,11 +11,9 @@
                         <th colspan="2">CONTACTO</th>
                     </tr>
                 </thead>
-                {{-- @if($errors->any())
-                    @foreach($errors->all() as $error)
-                        {{ $error }}
-                    @endforeach
-                @endif --}}
+                @if(@session('estado'))
+                    {{session('estado')}}
+                @else 
                 <form action="{{ route('contacto')}}" method="post">
                     @csrf 
                     <tbody>
@@ -54,7 +52,8 @@
                             </td>
                         </tr>
                     </tbody>
-                </form>
+                </form>                    
+                @endif
             </table>
         </td>
     </tr>

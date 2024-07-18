@@ -8,16 +8,9 @@ use App\Http\Requests\CreateServicioRequest;
 
 class ServiciosController extends Controller
 {
- #   /**
- #    * @param \Illuminate\Http\Request $request
- #    * @return \Illuminate\Http\Response
- #    */
-    
-
     public function index(){
         $servicios = Servicio::get();
         $servicios = Servicio::orderBy('titulo', 'asc')->get();
-        #$servicios = Servicio::latest()->paginate(2);
         return view('servicios', compact('servicios'));
     }
     public function show($id){
@@ -35,7 +28,7 @@ class ServiciosController extends Controller
     public function store(CreateServicioRequest $request){
         
         Servicio::create($request->validated());
-        return redirect()->route('servicios.index');
+        return redirect()->route('servicios.index')->with('estado','El servicio fue creado correctamente');
     }
 
     public function edit(Servicio $id){
@@ -46,13 +39,13 @@ class ServiciosController extends Controller
 
     public function update(Servicio $servicio, CreateServicioRequest $request){
         $servicio->update($request->validated());
-        return redirect()->route('servicios.show', $servicio);
+        return redirect()->route('servicios.show',$servicio)->with('estado','El servicio fue actualizado correctamente');
     }
 
     public function destroy(Servicio $servicio){
         $servicio->delete();
         
-        return redirect()->route('servicios.index');
+        return redirect()->route('servicios.index')->with('estado','El servicio fue eliminado correctamente');
     }
         
 }

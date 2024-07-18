@@ -12,6 +12,7 @@
     <nav>
         <table class="table">
             @include('partials.nav')
+            @include('partials.sesion-estado')
         </table>
         <table>
         @yield('content')  
