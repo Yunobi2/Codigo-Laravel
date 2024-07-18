@@ -31,10 +31,14 @@ class ServiciosController extends Controller
         return redirect()->route('servicios.index')->with('estado','El servicio fue creado correctamente');
     }
 
-    public function edit(Servicio $id){
-        return view('edit',[
-            'servicio' => $id
-        ]);
+    // public function edit(Servicio $id){
+    //     return view('edit',[
+    //         'servicio' => $id
+    //     ]);
+    // }
+    public function edit(Servicio $servicio)
+    {
+        return view('edit', compact('servicio'));
     }
 
     public function update(Servicio $servicio, CreateServicioRequest $request){
@@ -47,7 +51,12 @@ class ServiciosController extends Controller
         
         return redirect()->route('servicios.index')->with('estado','El servicio fue eliminado correctamente');
     }
-        
+    
+    public function __construct(){
+        // $this->middleware('auth')->only('create','edit');
+        $this->middleware('auth')->except('index','show');
+
+    }
 }
 
 

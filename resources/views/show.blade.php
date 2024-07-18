@@ -3,6 +3,7 @@
 @section('title', 'Servicio | ' . $servicio->titulo)
 
 @section('content')
+@auth
 <tr>
     <td colspan="4">{{ $servicio->titulo }}
         <a href="{{ route('servicios.edit', $servicio) }}">Editar servicio</a>
@@ -14,6 +15,7 @@
         </form>
     </td>
 </tr>
+@endauth
 
 <tr>
     <td colspan="4">{{ $servicio->descripcion }}</td>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::resource('servicios','App\Http\Controllers\ServiciosController')->except('index','show');
-Route::resource('servicios','App\Http\Controllers\ServiciosController')->names('servicios');
+Route::resource('servicios','App\Http\Controllers\ServiciosController')->names('servicios')->middleware('auth');
 Route::view('/','home')->name('home');
 Route::view('nosotros','nosotros')->name('nosotros');
 // Route::get('servicios','App\Http\Controllers\ServiciosController@index')->name('servicios.index');
