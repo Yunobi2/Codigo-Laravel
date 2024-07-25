@@ -9,19 +9,9 @@
 </tr> 
 
 @include('partials.validation-errors')
-<form action="{{ route('servicios.store') }}" method="post">
+<form action="{{ route('servicios.store') }}" method="post" enctype="multipart/form-data">
 @include('partials.form', ['btnText' => 'Guardar'])
-{{-- <tr>
-    <th>Titulo</th>
-    <td><input type="text" name="titulo" value="{{ old('titulo', $servicio->titulo) }}"></td>
-</tr>
-<tr>
-    <th>Descripcion</th>
-    <td><input type="text" name="descripcion" value="{{ old('descripcion', $servicio->descripcion) }}"></td>
-</tr>
-<tr>
-    <td colspan="2" align="center"><button>Guardar</button></td>
-</tr> --}}
+
 </form>
 </table>
 @endsection

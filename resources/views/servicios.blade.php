@@ -17,6 +17,14 @@
     <tr>
         @if($servicios)
             @foreach($servicios as $servicio)
+            <tr>
+                <td>
+                    @if($servicio->image)
+                        <img src="/storage/{{$servicio->image}}" alt="{{$servicio->titulo}}" width="50"
+                        height="50">
+                    @endif
+                </td>
+            </tr>
                 <td colspan="4"><a href="{{ route('servicios.show',$servicio) }}">{{ $servicio->titulo }}</a><br>{{ $servicio->descripcion }}</td>
             @endforeach
         @else
