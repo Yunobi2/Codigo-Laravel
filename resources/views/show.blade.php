@@ -11,6 +11,9 @@
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
+          @if($servicio->category_id)
+          <a href="#" class="badge badge-secondary">{{ $servicio->category->name }}</a>
+          @endif
         </div>
       </div>
     {{-- <td><img src="/storage/{{$servicio->image}}" alt="{{$servicio->titulo}}" width="100" height="50"></td> --}}

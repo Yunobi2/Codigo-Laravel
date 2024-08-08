@@ -9,6 +9,23 @@
 </tr>
 
 <tr>
+    <th>Categoría</th>
+    <td>
+        <select name="category_id" id="category_id">
+            <option value="">Seleccione</option>
+                @foreach ($categories as $id => $name)
+                    <option value="{{ $id }}"
+                    @if($id == old('category_id', $servicio->category_id)) selected @endif
+                    >{{ $name }}</option>
+                @endforeach
+        </select>
+        @error('category_id')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </td>
+</tr>
+
+<tr>
     <th>Titulo</th>
     <td><input type="text" name="titulo" value="{{ old('titulo', $servicio->titulo) }}"></td>
     {{-- <td><input type="text" name="titulo" value="{{ $errors->first('titulo') }}"></td> --}}

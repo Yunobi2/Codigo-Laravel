@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +15,9 @@ class ServiciosController extends Controller
         $servicios = Servicio::get();
         $servicios = Servicio::orderBy('titulo', 'asc')->get();
         return view('servicios', compact('servicios'));
+        // return view('servicios',[
+        //     'servicios' => Servicio::with('category')->latest()->paginate()
+        // ]);
     }
     public function show($id){
         return view('show',[
@@ -23,7 +27,8 @@ class ServiciosController extends Controller
 
     public function create(){
         return view('create', [
-            'servicio' => new Servicio
+            'servicio' => new Servicio,
+            'categories' => Category::pluck('name', 'id')
         ]);
     }
 
@@ -46,7 +51,10 @@ class ServiciosController extends Controller
 
     public function edit(Servicio $servicio)
     {
-        return view('edit', compact('servicio'));
+        return view('edit', [
+            'servicio' => $servicio,
+            'categories' => Category::pluck('name', 'id')
+        ]);
     }
 
     public function update(Servicio $servicio, CreateServicioRequest $request){
